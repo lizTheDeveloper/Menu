@@ -1,0 +1,43 @@
+
+
+<template name="foodMenu">
+    <table class="table table-hover">
+        {{#each meals}}
+        <tr>
+            {{> meal}}
+        </tr>
+        {{/each}}
+    </table>
+</template>
+
+<template name="meal">
+  
+    <td class="id">Delete<i class="icon-minus-sign delete-menu"></i></td>
+    <td class="title">Title : {{title}}</td>
+    <td class="title">Day : {{plannedDay}}</td>
+    <td class="serves">Serves : {{serves}}</td>
+
+</template>
+
+<template name="addMeal">
+    <div class="form-inline">
+        <input type="text" name="name" id="name" placeholder="Name" class="span2">
+        <input type="text" name="count" id="count" placeholder="Serves" class="span1">
+        <select name="planned_day">
+            <option>Monday</option>
+            <option>Tuesday</option>
+            <option>Wednesday</option>
+            <option>Thursday</option>
+            <option>Friday</option>
+            <option>Saturday</option>
+            <option>Sunday</option>
+        </select>
+        
+        <button type="button" id="add" class="btn"><i class="icon-plus"></i></button>
+    </div>
+</template>
+
+<template name="mealManage">
+    {{> addMeal}}
+    {{> foodMenu}}
+</template>

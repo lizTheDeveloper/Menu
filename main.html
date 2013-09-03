@@ -1,0 +1,62 @@
+<head>
+  <title>Menu</title>
+</head>
+
+<body>
+ {{> container}}
+</body>
+
+<template name="container">
+    <div class="container">
+
+        <div class="masthead">
+            <h3 class="muted">Menu</h3>
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul class="nav">
+                            <li class="active" id="home"><a href="#">Home</a></li>
+                            <li id="meals"><a href="#" >Meals</a></li>
+                            <li id="recipes"><a href="#" id="recipes">Receipes</a></li>
+                            <li id="ingredients"><a href="#">Ingredients</a></li>
+                            <li id="shopping"><a href="#">Shopping List</a></li>
+                            <li id="contact"><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /.navbar -->
+        </div>
+        <div class="body">
+            {{> main}}
+        </div>
+
+        <hr>
+
+        <div class="footer">
+            <p>Food Menu</p>
+        </div>
+
+    </div> <!-- /container -->
+</template>
+
+<template name="main">
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+        <h1>Menu</h1>
+        {{> foodMenu}}
+    </div>
+
+    <hr>
+
+        <!-- Example row of columns -->
+    <div class="row-fluid">
+        <div class="span6">
+            <h2>Add a Meal</h2>
+            {{> addMeal}}
+        </div>
+        <div class="span6">
+            <h2>Add an Ingredient</h2>
+            {{> addIngredient}}
+        </div>
+    </div>
+</template>

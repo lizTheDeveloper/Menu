@@ -1,0 +1,40 @@
+<template name="recipes">
+    {{> newRecipe}}
+    {{> recipeList}}
+</template>
+
+<template name="newRecipe">
+    <div class="form">
+        Title : <input type="text" id="recipeTitle">
+        Description : <textarea id="recipeDescription"> </textarea>
+        Serves : <input type="number" id="recipeServes">
+        Requires : <input type="text" id="recipeRequires"> - This should be a "tags" kinda field
+        Ingredients : --- an "add another" kinda area
+        Meal Types : Another tags kinda area
+
+    </div>
+    <script type="text/javascript">
+        var tagApi = $("#recipeRequires").tagsManager({
+            prefilled: ["Oven", "Knives", "Cutting Board", "Saucepan", "Frying Pan", "Bread Pan", "9x9 Pan"]
+        });
+    </script>
+</template>
+
+<template name="recipeList">
+    <table class="table table-hover">
+        {{#each recipes}}
+        <tr>
+            {{> recipe}}
+        </tr>
+        {{/each}}
+    </table>
+</template>
+
+<template name="recipe">
+  
+    <td class="id">Delete<i class="icon-minus-sign delete-recipe"></i></td>
+    <td class="title">Title : {{title}}</td>
+    <td class="title">Description : {{description}}</td>
+    <td class="serves">Serves : {{serves}}</td>
+
+</template>
