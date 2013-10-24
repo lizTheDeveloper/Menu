@@ -23,6 +23,18 @@ if (Meteor.isClient){
             }));
             $('li').removeClass('active');
             $('#recipes').addClass('active');
+
+            var tagApi = jQuery("#recipeRequires").tagsManager({prefilled: ["Oven"]});
+
+            jQuery("#recipeRequires").typeahead({
+                name: 'countries',
+                limit: 15,
+                local: ["Angola", "Laos", "Nepal"]
+            }).on('typeahead:selected', function (e, d) {
+
+                tagApi.tagsManager("pushTag", d.value);
+
+            });
         },
         'click #ingredients' : function() {},
         'click #shopping' : function() {},

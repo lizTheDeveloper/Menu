@@ -54,11 +54,6 @@ if (Meteor.isClient){
         }
     });
 
-
-
-
-
-
 }
 
 

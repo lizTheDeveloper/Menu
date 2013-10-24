@@ -5,17 +5,38 @@
 
 <template name="newRecipe">
     <div class="form">
-        Title : <input type="text" id="recipeTitle">
-        Description : <textarea id="recipeDescription"> </textarea>
-        Serves : <input type="number" id="recipeServes">
-        Requires : <input type="text" id="recipeRequires"> - This should be a "tags" kinda field
-        Ingredients : --- an "add another" kinda area
-        Meal Types : Another tags kinda area
-
+        <fieldset>
+            <label for="recipeTitle">Title</label> : <input type="text" id="recipeTitle">
+        </fieldset>
+        <fieldset>
+            <label for="recipeDescription">Description</label> : <textarea id="recipeDescription"> </textarea>
+        </fieldset>
+        <fieldset>
+            <label>Serves</label> : <input type="number" id="recipeServes">
+        </fieldset>
+        <fieldset>
+            <label>Requires</label> : <input type="text" id="recipeRequires"> - This should be a "tags" kinda field
+        </fieldset>
+        <fieldset>
+            <label>Ingredients</label> : --- an "add another" kinda area
+        </fieldset>
+        <fieldset>
+            <label>Meal Types</label> : Another tags kinda area
+        </fieldset>
     </div>
     <script type="text/javascript">
-        var tagApi = $("#recipeRequires").tagsManager({
-            prefilled: ["Oven", "Knives", "Cutting Board", "Saucepan", "Frying Pan", "Bread Pan", "9x9 Pan"]
+        var tagApi = jQuery("#recipeRequires").tagsManager({
+          prefilled: ["Angola", "Laos", "Nepal"]
+        });
+        console.log("running this JS");
+     
+        jQuery("#recipeRequires").typeahead({
+          name: 'countries',
+          limit: 15
+        }).on('typeahead:selected', function (e, d) {
+        
+            tagApi.tagsManager("pushTag", d.value);
+     
         });
     </script>
 </template>
